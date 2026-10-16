@@ -3,11 +3,13 @@ package boot.spring.blog.entitie;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "tags")
-public class Tags {
+public class Tag {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -15,8 +17,8 @@ public class Tags {
 
     private String name;
 
-    @ManyToMany(mappedBy = "posts")
-    private List<Post> posts = new ArrayList<>();
+    @ManyToMany(mappedBy = "tags")
+    private Set<Post> posts = new HashSet<>();
 
 }
 
